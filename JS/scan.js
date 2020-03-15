@@ -10,6 +10,7 @@ var fs = require('fs');
 var debug = require('debug')('explore');
 var getopt = require('node-getopt');
 
+// 用一个类来识别命令的类型
 var options = new getopt([
   ['a' , 'no-advertisements'   , 'do not save advertisements (default: save)'],
   ['r' , 'no-read'             , 'do not read characteristics values (default: read), helpful when device requires auth and service exploring stalls'],
@@ -22,17 +23,23 @@ options.setHelp('Usage: node scan [ -a ] [ -r ] [ peripheral ]\n' +
 'peripheral - optional peripheral device do explore services (MAC address e.g. ec:fe:7e:12:34:56 or id e.g. ecfe7e123456). If not provided, broadcast advertisement scan.' +
 'Command-line options:\n[[OPTIONS]]' )
 
+// 将输入的指令类型赋值给变量
 opt=options.parseSystem();
 
+// 根据指令类型做出相应的操作
+
+// 显示帮助信息
 if (opt.options.help) {
   options.showHelp()
   process.exit(0)
 }
 
+// 进入fun mode
 if (opt.options.funmode) {
   console.log('>>>>>>>>>>>>>>>>> MAY THE FUN BE WITH YOU! <<<<<<<<<<<<<<<<<<'.rainbow.inverse)
 }
 
+// 解析输入的mac地址
 if (opt.argv.length > 0) {
   var specifiedPeripheral = opt.argv[0].replace(/:/g,'').toLowerCase();
 }
@@ -59,7 +66,7 @@ if (opt.options.overwrite) {
     overWriteServices=true;
 }
 
-
+// 这里是执行特定搜索，也就是扫描指定的设备
 function exploreSpecified(peripheralId) {
 
   checkFile(peripheralId, function(exists){
