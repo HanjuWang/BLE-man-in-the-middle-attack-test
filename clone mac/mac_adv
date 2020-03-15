@@ -1,24 +1,32 @@
 #!/bin/bash
-
+# 这是一个shell脚本，用来进行mac地址克隆
+# 显示下面的消息
 echo "Advertise with cloned MAC address"
 
+# 从helpers/bdaddr/bdaddr这个路径中得到现在的设备mac地址
 BDADDR=helpers/bdaddr/bdaddr
 
 . ./config.env
 
+# 取得现在设备的hci号
 HCIDEV="hci$BLENO_HCI_DEVICE_ID"
 
+# 判断输入参数数量，小于二返回错误
 if [ $# -lt 2 ]; then
 	echo "Usage: sudo $0 -a <advertisement_file> [ -s <services_file> ] "
 	exit
 fi
 
+# 从输入的参数二的文件中得出目标ID
 TARGETID=`echo $2 |cut -d "/" -f 2 | cut -d "_" -f 1`
 
+# 从输入的参数二的文件中得出目标地址
 TARGETMAC=`echo $TARGETID | fold -w2 | paste -sd':' - | tr '[a-z]' '[A-Z]'`
 
 HCIMAC=`hciconfig $HCIDEV |grep "Address" | cut -d" " -f 3`
 
+# 根据HCIMAC和TARGETMAC是否相等，不相等则将TARGETMAC复制给HCIMAC
+# 从软件中就能将设备识别为新的mac地址
 # case-insensitive - bash 4: 
 while [ "${HCIMAC,,}" != "${TARGETMAC,,}" ]; do
 	hciconfig $HCIDEV up
