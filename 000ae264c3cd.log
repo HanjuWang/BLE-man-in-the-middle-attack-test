@@ -1,21 +1,21 @@
-# 读出设备名称
+# Read the name of the equipement
 2020.03.05 05:54:01.02 | > R | 1800 (Generic Access) | 2a00 (Device Name) | 4d425037302d334344 (MBP70-3CD)
 2020.03.05 06:17:13.313 | > R | 1800 (Generic Access) | 2a00 (Device Name) | 4d425037302d334344 (MBP70-3CD)
-# 写入设备外观属性
+# Write device appearance properties
 2020.03.05 06:27:07.707 | < C | 1800 (Generic Access) | 2a01 (Appearance) | 0200 (  )
 2020.03.05 06:27:09.681 | > R | 1800 (Generic Access) | 2a00 (Device Name) | 4d425037302d334344 (MBP70-3CD)
 2020.03.05 06:30:27.832 | < C | 1800 (Generic Access) | 2a01 (Appearance) | 0200 (  )
 2020.03.05 06:30:29.704 | > R | 1800 (Generic Access) | 2a00 (Device Name) | 4d425037302d334344 (MBP70-3CD)
 2020.03.05 06:34:28.115 | < C | 1800 (Generic Access) | 2a01 (Appearance) | 0200 (  )
 2020.03.05 06:34:30.082 | > R | 1800 (Generic Access) | 2a00 (Device Name) | 4d425037302d334344 (MBP70-3CD)
-# 读出温度类型
+# Read temperature type
 2020.03.05 06:37:28.473 | > R | 1809 (Health Thermometer) | 2a1d (Temperature Type) | 02 ( )
-# 读出测量间隔
+# Read out measurement interval
 2020.03.05 06:37:28.474 | > R | 1809 (Health Thermometer) | 2a21 (Measurement Interval) | 02 ( )
 2020.03.05 06:37:30.325 | > R | 1800 (Generic Access) | 2a00 (Device Name) | 4d425037302d334344 (MBP70-3CD)
-# 读出测量温度
+# Read out measured temperature
 2020.03.05 06:38:00.114 | > R | 1809 (Health Thermometer) | 2a1c (Temperature Measurement) | 02650100ffdf07010702050d02 (  )
-# 读出测量温度
+# Read out measured temperature
 2020.03.05 06:38:24.271 | < C | 1809 (Health Thermometer) | 2a1c (Temperature Measurement) | 02650100fcdf07010702050d02 (  )
 2020.03.05 06:38:36.344 | > R | 1809 (Health Thermometer) | 2a1d (Temperature Type) | 02 ( )
 2020.03.05 06:38:37.861 | > R | 1809 (Health Thermometer) | 2a1d (Temperature Type) | 02 ( )
